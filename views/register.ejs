@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!Author: James Marcel>
+<!CS5610 Assignment 3>
+<!10/19/2022>
+<!register page>
+
+<HTML>
+<head>
+	<%- include('./partials/head.ejs') %>
+</head>
+
+<body>
+
+	<%- include('./partials/nav.ejs') %>
+
+
+<div class="container">
+	<div>
+		<h1>Create an Account</h1>
+
+	</div>
+	<form class="row" method="post" id="register" action="/auth/register">
+
+		<div class="inputField">
+			<label >Username:</label>
+			<input type="text" name="name">
+		</div>
+		<div class="inputField">
+			<label >Email:</label>
+			<input type="text" name="email">
+		</div>
+		<div class="inputField">
+			<label>Password:</label>
+			<input type="password" name="pass">
+		</div>
+		<div class="inputField">
+			<label >Confirm Password:</label>
+			<input type="password" name="confirmpass">
+		</div>
+    	<p>By creating an account you agree to our <a href="/privacy">Terms & Privacy Policy</a>.</p>
+		</br>
+		<div class="inputField">
+			<button class = "submit" type="submit" id="submit-reg">Register</button>
+		</div>
+	</form>
+</div>
+
+<!messages can be inserted into this container>
+<div class="container" id="messages">
+	<% if (message) { %>
+		<h2><%=message%></h2>
+		<% } %>
+</div>
+<%- include('./partials/footer.ejs') %>
+<script src = "/index.js"></script>
+</body>
+
+</HTML>

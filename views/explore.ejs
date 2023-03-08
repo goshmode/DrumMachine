@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!Author: James Marcel>
+<!CS5610 Assignment 3>
+<!10/19/2022>
+<!explore page>
+
+<HTML>
+<head>
+	<%- include('./partials/head.ejs') %>
+</head>
+
+<body>
+
+	<%- include('./partials/nav.ejs') %>
+
+
+<div class="container content">
+	<div>
+		<h1>Hear some other creations!</h1>
+	</div>
+</div>
+
+<div class="search-area">
+
+<div><label>Search by Title:</label><input id="title-search" class="inputfield" type="text"></input></div>
+<div><label>Search by Genre:</label><select id ="genre-search" >
+	<option value="" selected>Any</option>
+	<option value="Jazz">Jazz</option>
+	<option value="Rock">Rock</option>
+	<option value="Dance">Dance</option>
+</select></div>
+<div><label>Search by User:</label><input id="user-search" class="inputfield" type="text"></input></div>	
+<div class="submit" id="search-button">Search</div>
+
+
+
+
+</div>
+
+
+
+</div>
+
+<div class = "tablebox">
+<table class="songlist">
+	<tbody>
+
+	</tbody>
+</table>
+</div>
+<%- include('./partials/footer.ejs') %>
+<script src = "/index.js"></script>
+</body>
+
+</HTML>

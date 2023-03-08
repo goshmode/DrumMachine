@@ -1,0 +1,304 @@
+
+ body {
+	background-color: #b6e1e0;
+	font-family: "Cerebri Sans", Trebuchet MS;
+	color:#2b4353;
+	margin: 0 auto;
+	line-height:normal;  /*was 1.5*/
+	text-align:center;
+ }
+ 
+	
+nav ul {
+	font-size:16px;
+	width: 100%;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #e8630a;
+	border-bottom: solid #2b4353 2px;
+}
+
+nav li {
+	float: left;
+}
+
+nav li a {
+	display: block;
+	color: #2b4353;
+	padding: 5px 10px 5px 10px;
+	text-align: center;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+nav li a:hover {
+	background-color: #2b4353;
+	color:#e8630a;
+}
+
+ul {
+	list-style-position: inside;
+}
+
+.login {
+	float: right;
+}
+
+.container {
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right:auto;
+	margin-left: auto;
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+h1 {
+	text-align:center;
+}
+
+form {
+
+	background-color:#9cd3d3;
+
+	border:2px solid;
+	border-radius:5px;
+	width: 100%;
+    max-width: 250px;
+    margin: 0 auto 20px auto;
+	
+}
+.textbox{
+	text-align:left;
+	width:400px;
+	background-color:#9cd3d3;
+	margin: 30px auto;
+	padding:14px;
+	border:2px solid;
+	border-radius:5px;
+
+}
+.inputField{
+	margin: 0 auto 5px auto;
+}
+
+label {
+	display:inline-block;
+	padding:10px 10px 0px;
+}
+
+input[type=text],input[type=password]{
+	margin:10px;
+	padding: 10px 20px;
+	border: 2px solid;
+	border-radius: 5px;
+}
+
+.submit {
+	padding: 10px 20px 10px 20px;
+	font-weight:bold;
+	font-size:14px;
+	background-color: #e8630a;
+	border-radius:5px;
+	cursor:pointer;
+
+}
+
+button[type=submit]:hover {
+    background-color:white;
+}
+
+.drumselect {
+	position:relative;
+	display:flex;
+	justify-content:space-evenly;
+	width:100%;
+	margin-bottom:10px;
+	
+}
+
+.drumchoice {
+	width: auto;
+	justify-content:center;
+	margin-left:10px;
+
+}
+
+
+.drumbutton {
+	background-color:#9cd3d3;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	border:2px solid black;
+	font-weight:bold;
+	padding:10px;
+	width:100%;
+	cursor: pointer;
+	
+}
+
+.beatselect {
+	display:flex;
+	justify-content:center;
+	width:100%;
+	margin-bottom:10px;
+}
+
+.beatbutton {
+	background-color: #9cd3d3;
+	border:1px solid black;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	font-weight:bold;
+	width:100%;
+	height:60px;
+	cursor: pointer;
+}
+
+
+.drumbutton:nth-child(even){
+	background-color: #b6e1e0;
+}
+.beatbutton:nth-child(even){
+	background-color: #b6e1e0;
+}
+
+.trackcontrols {
+	display:flex;
+	justify-content:start;
+	width:100%;
+}
+
+.trackbutton {
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	border:2px solid black;
+	height:45px;
+	font-weight:bold;
+	width:20%;
+	align-self:center;
+	cursor: pointer;
+}
+.trackbutton:hover{
+	background-color:#ddd;
+}
+
+button {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.user-info {
+	justify-content:center;
+
+}
+
+.update-box {
+	display:flex;
+	text-align:left;
+	justify-content:left;
+}
+
+.songlist {
+	text-align:center;
+	justify-content:center;
+}
+
+.songlist {
+	border-collapse: collapse;
+	width: 100% auto;
+
+}
+
+.songlist td, .songlist th {
+	border: 1px solid black;
+	padding: 8px;
+  }
+
+.songlist tr:nth-child(even){
+	background-color: #b6e1e0;
+}
+
+.songlist tr:hover {
+	background-color: #ddd;
+}
+
+.songlist th {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: left;
+	border: 1px solid black;
+	background-color: #e8630a;
+	padding:4px;
+  }
+
+.tablebox{
+	text-align:left;
+	width:550px;
+	background-color:#9cd3d3;
+	margin: 40px auto;
+	padding:14px;
+	border:2px solid;
+	border-radius:5px;
+	justify-content:center;
+
+
+}
+
+.flex-container {
+	display:flex;
+	flex-wrap:wrap;
+	width:100%;
+	justify-content:center;
+	align-items:center;
+	background-color: #b6e1e0;
+}
+
+label{
+	margin:10px;
+	padding:5px;
+}
+
+.search-area form{
+	display:flex-box;
+	width:100% auto;
+	max-width: auto;
+}
+
+.search-area div {
+	display:inline-block;
+}
+select {
+	max-width:90%;
+}
+
+table {
+	margin-bottom:10px;
+}
+
+.contents {
+	text-align:center;
+}
+
+.drumImage {
+	margin:0px;
+	width : auto;
+	mix-blend-mode: darken;
+}
+
+footer{
+	text-align:center;
+}

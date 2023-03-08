@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!Author: James Marcel>
+<!CS5610 Assignment 3>
+<!10/19/2022>
+<!learn page>
+
+<HTML>
+<head>
+	<%- include('./partials/head.ejs') %>
+</head>
+
+<body>
+
+	<%- include('./partials/nav.ejs') %>
+
+
+<div class="container">
+	<div>
+		<h1>Learn how to Make Drum Beats</h1>
+	</div>
+	<div class="textbox">
+		Have you even wanted to sequence drums, but don't have access to one of these?
+	</div>
+</div>
+
+<div class="drumImage">
+<a title="Roland_TR-808_&amp;_909.jpg: Brandon Daniel
+derivative work: Clusternote, CC BY-SA 2.0 &lt;https://creativecommons.org/licenses/by-sa/2.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Roland_TR-808_(large).jpg"><img alt="Roland TR-808 (large)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Roland_TR-808_%28large%29.jpg/512px-Roland_TR-808_%28large%29.jpg"></a>
+</div>
+
+<div class="container">
+	<div class="textbox">
+		Our drum machine is designed to sequence 4 different drums in a 4:4 time signature.
+		Each of the 16 'steps' in the sequencer represents a 16th note in a 'measure' of time (a note that lands on a 1/16 subdivision of a measure).
+		This measure repeats, and we're left with a beat.
+	</br>
+		The steps are all labeled to indicate which beat you're triggering each drum sound.
+		If you'd like to program a standard drum beat, try this:</br>
+		<ul>
+			<li>kick drum on 1.1 and 3.1</li>
+			<li>snare drum on 2.1 and 4.1</li>
+			<li>hi hat (closed) on 1.1 and every other step</li>
+		</ul>
+
+		Now hit PLAY and have some fun!<br><br>
+		<div class = "contents">
+		<button class="submit" onclick="window.location.href='/create';" >Start a New Beat!</button>
+		</div>
+
+
+	</div>
+</div>
+<%- include('./partials/footer.ejs') %>
+</body>
+
+</HTML>

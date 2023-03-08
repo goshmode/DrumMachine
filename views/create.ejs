@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<!Author: James Marcel>
+<!CS5610 Assignment 3>
+<!10/19/2022>
+<!create page>
+
+<HTML>
+<head>
+	<%- include('./partials/head.ejs') %>
+
+</head>
+
+<body>
+
+<%- include('./partials/nav.ejs') %>
+
+
+<div class="container content">
+	<div>
+		<% if (songId) { %>
+		<h1>Check out this track!</h1>
+		<% } else { %>
+		<h1>Let's make some beats!</h1>
+		<% } %>
+	</div>
+	<div class="textbox">
+	<ul>
+	<li>You can only save if you're logged in!</li>
+	<li>Pick a drum, then choose which beats it hits on </li>
+	<li>Select the sound used for each drum </li>
+	<li>Choose the beats for each drum and hit play!</li>
+	</ul>
+
+	<% if(songId) {%>
+	<div class="contents">
+	<button class="submit" onclick="window.location.href='/create';" >Start a New Song!</button>
+	</div>
+	<% } %>
+	</div>
+
+
+</div>
+
+
+<% if ((owner) && (songId)) { %>
+
+	<div hidden id="owner">true</div>
+	<div hidden id="songId"><%= songId %></div>
+	<div hidden id="bpm"><%= bpm %></div>
+	<div hidden id="song-title"><%= songtitle %></div>
+	<div class="search-area">
+		<label>Title:</label><input id = 'title-input' type="text"></input>
+		<label>Creator: <a href= "/profile/<%= un %>" > <%= un %> </a> </label>
+		<label>Genre:</label><select id = 'genre-input' name="genre-select">
+			<option value="Jazz">Jazz</option>
+			<option value="Rock">Rock</option>
+			<option value="Dance">Dance</option>
+		</select></br>
+	
+	</div>
+
+<% } else if (songId) { %>
+	<div hidden id="songId"><%= songId %></div>
+	<div hidden id="bpm"><%= bpm %></div>
+<div class="search-area">
+	<label>Title: <%= songtitle %></label>
+	<label>Creator: <a href="/profile/<%= un %>"><%= un %></a> </label>
+	<label>Genre: <%= genre %> </label>
+</div>
+
+<% } else if (login) { %>
+	<div hidden id="userId"><%= un %></div>
+	<div class="search-area">
+		<label>Title:</label><input id = 'title-input' type="text"></input>
+		<label>Creator: <a href= "/profile/<%= un %>" > <%= un %> </a> </label>
+		<label>Genre:</label><select id = 'genre-input' name="genre-select">
+			<option value="Jazz">Jazz</option>
+			<option value="Rock">Rock</option>
+			<option value="Dance">Dance</option>
+		</select></br>
+	
+	</div>
+
+<% } %>
+
+
+
+
+
+
+<!drum machine prototype>
+<div class="container">
+	Beats Per Minute:
+	<div>
+
+		<input class="inputField" id="bpm-form" type="number" value="120" min="40" max="300" onchange="updateBPM(this)"></input>
+
+	</div>
+Drum select:
+<! drum select buttons>
+<div class="drumselect" >
+
+
+	<div class="drumbutton" id="drum0" >
+		Kick
+	</div>
+	<div class="drumbutton" id="drum1" >
+		Snare
+	</div>
+	<div class="drumbutton" id="drum2" >
+		Hi-Hat</br> Closed
+	</div>
+	<div class="drumbutton" id="drum3" >
+		Hi-Hat</br> Open
+	</div>
+
+</div>
+<div class="drumselect" >
+
+
+	<div class="drumchoice" id="drum0" >
+		<select name="drum0select" onchange="updateDrum(this)">
+			<option value="LDkick.wav">80s kick</option>
+			<option value="78kick.wav">Old School kick</option>
+			<option value="909kick.wav">Techno kick</option>
+		</select>
+	</div>
+	<div class="drumchoice" id="drum1" >
+		<select name="drum1select" onchange="updateDrum(this)">
+			<option value="LDsnare.wav">80s snare</option>
+			<option value="78snare.wav">Old School snare</option>
+			<option value="909snare.wav">Techno snare</option>
+		</select>
+	</div>
+	<div class="drumchoice" id="drum2" >
+		<select name="drum2select" onchange="updateDrum(this)">
+			<option value="LDhat.wav">80s hat</option>
+			<option value="78hat.wav">Old School hat</option>
+			<option value="909hat.wav">Techno hat</option>
+		</select>
+	</div>
+	<div class="drumchoice" id="drum3" >
+		<select name="drum3select" onchange="updateDrum(this)">
+			<option value="LDopen.wav">80s hat open</option>
+			<option value="78open.wav">Old School hat open</option>
+			<option value="909open.wav">Techno hat open</option>
+		</select>
+	</div>
+
+
+
+</div>
+
+<! beat grid>
+Beat Sequence:
+<div class="beatselect">
+
+		<div class="beatbutton" id="beat0_0" onclick="beatmap(0,0)">
+		1.1
+	</div>
+	<div class="beatbutton" id="beat0_1" onclick="beatmap(0,1)">
+		1.2
+	</div>
+	<div class="beatbutton" id="beat0_2" onclick="beatmap(0,2)">
+		1.3
+	</div>
+	<div class="beatbutton" id="beat0_3" onclick="beatmap(0,3)">
+		1.4
+	</div>
+	
+		<div class="beatbutton" id="beat1_0" onclick="beatmap(1,0)">
+		2.1
+	</div>
+	<div class="beatbutton" id="beat1_1" onclick="beatmap(1,1)">
+		2.2
+	</div>
+	<div class="beatbutton" id="beat1_2" onclick="beatmap(1,2)">
+		2.3
+	</div>
+	<div class="beatbutton" id="beat1_3" onclick="beatmap(1,3)">
+		2.4
+	</div>
+	
+		<div class="beatbutton" id="beat2_0" onclick="beatmap(2,0)">
+		3.1
+	</div>
+	<div class="beatbutton" id="beat2_1" onclick="beatmap(2,1)">
+		3.2
+	</div>
+	<div class="beatbutton" id="beat2_2" onclick="beatmap(2,2)">
+		3.3
+	</div>
+	<div class="beatbutton" id="beat2_3" onclick="beatmap(2,3)">
+		3.4
+	</div>
+	
+		<div class="beatbutton" id="beat3_0" onclick="beatmap(3,0)">
+		4.1
+	</div>
+	<div class="beatbutton" id="beat3_1" onclick="beatmap(3,1)">
+		4.2
+	</div>
+	<div class="beatbutton" id="beat3_2" onclick="beatmap(3,2)">
+		4.3
+	</div>
+	<div class="beatbutton" id="beat3_3" onclick="beatmap(3,3)">
+		4.4
+	</div>
+
+</div>
+
+<!playback controls>
+<div class="trackcontrols">
+	<div class="trackbutton" onclick="playtrack()">
+	PLAY
+	</div>
+
+	<div class="trackbutton" onclick="stoptrack()">
+	STOP
+	</div>
+
+
+	<% if (owner) {%>
+	<div class="trackbutton" onclick="saveTrack()">
+		SAVE
+	</div>
+	<div class="trackbutton" onclick="pullTrack()">
+		LOAD
+	</div>
+	<% } %>
+	<div class="trackbutton" onclick="clearTrack()">
+		CLEAR
+	</div>
+</div>
+
+<!area to display temporary messages>
+<h2 id="messages">
+	
+</h2>
+
+
+</div>
+<%- include('./partials/footer.ejs') %>
+<script src = "/create.js"></script>
+</body>
+
+</HTML>

@@ -1,0 +1,21 @@
+<nav>
+	<ul>
+		<li><a href = "/index">Home</a></li>
+		<li><a href = "/create">Create</a></li>
+		<li><a href = "/learn">Learn</a></li>
+		<li><a href = "/explore">Explore</a></li>
+
+		
+				
+		<% if (login) { %>
+
+        <li class = "login"><a href = "/logout">Log Out</a></li>
+
+        <li class = "login"><a href = "/profile/<%= un %>"><% if(admin) { %>(Admin)<% } %>	<%= un %></a></li>
+		
+		<% } else { %>
+        <li class = "login"><a href = "/register">Register</a></li> 
+        <li class = "login"><a href = "/login">Log In</a></li>
+        <% } %>
+	</ul>
+</nav>

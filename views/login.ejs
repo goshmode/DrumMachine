@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!Author: James Marcel>
+<!CS5610 Assignment 3>
+<!10/19/2022>
+<!login page>
+
+<HTML>
+<head>
+	
+	<%- include('./partials/head.ejs') %>
+</head>
+
+<body>
+
+	<%- include('./partials/nav.ejs') %>
+
+
+<div class="container">
+	<div>
+		<h1>Sign in!</h1>
+		<div class="container">
+	Don't have an account? <a href="/register">Create one!</a>
+</div>
+	</div>
+	<form class="row" method="post" id="login" action="/auth/check">
+		<div class="inputField">
+			<label for="username">Username:</label>
+			<input type="text" name="username">
+		</div>
+		<div class="inputField">
+			<label for="password">Password:</label>
+			<input type="password" name="password">
+		</div>
+		</br>
+		<div class="inputField">
+			<button type="submit" class="submit" >Log In</button>
+		</div>
+	</form>
+</div>
+<div class="container">
+	<a href="/forgot">forgot password?</a>
+</div>
+<div>
+	<% if (message) { %>
+		<h2><%= message %></h2>
+	<% } %>
+</div>
+<%- include('./partials/footer.ejs') %>
+</body>
+
+</HTML>

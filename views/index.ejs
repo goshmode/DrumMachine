@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!Author: James Marcel>
+<!CS5610 Assignment 3>
+<!10/19/2022>
+<!home page>
+
+<HTML>
+<head>
+	<%- include('./partials/head.ejs') %>
+</head>
+
+<body>
+
+	<%- include('./partials/nav.ejs') %>
+
+
+<div class="container content">
+	<div hidden id="homeactive"></div>
+	<div>
+		<% if (login) { %>
+			<div hidden id="homelogged"></div>
+			<h1> Welcome, <%= un %>!</h1>
+			<% } else { %>
+		<h1>Welcome to SongTool</h1>
+		<% } %>
+	</div>
+	<div class="textbox">
+	12/10/2022 - SongTool is working! Please feel free to check out the CREATE tab to test out the drum machine.
+	If you want to save a 'track' just create an account and log in to activate the save feature. Otherwise, check out these
+	tracks from other users!
+	</div>
+
+
+
+
+	<% if (login) { %>
+		<div class="tablebox">
+			<h1>Your Recent Tracks:</h1>
+			<table class="songlist" >
+				<tbody>
+
+				</tbody>
+			</table>
+
+		<div class = "contents">
+			<button class="submit" onclick="window.location.href='/create';" >Start a New Beat!</button>
+			</div>
+	</div>
+	<% } else { %>
+
+	
+		<div class="tablebox">
+			<h1>Recent Tracks from Our Users:</h1>
+			<table class="songlist">
+				<tbody>
+
+				</tbody>
+			</table>
+			<div class = "contents">
+				<button class="submit" onclick="window.location.href='/register';" >Create an Account</button>
+				</div>
+		</div>
+	<% } %>
+</div>
+
+<%- include('./partials/footer.ejs') %>
+<script src = "/index.js"></script>
+</body>
+
+</HTML>

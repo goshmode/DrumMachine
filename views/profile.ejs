@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!Author: James Marcel>
+<!CS5610 Assignment 3>
+<!10/19/2022>
+<!profile page>
+
+<HTML>
+<head>
+	<%- include('./partials/head.ejs') %>
+</head>
+
+<body>
+
+	<%- include('./partials/nav.ejs') %>
+
+<div hidden id='user'><%= title %></div>
+<div class="container">
+	<div>
+		<h1>Profile for <%= title %></h1>
+
+	</div>
+
+<div class="user-info">
+<ul>
+<li id="prof-un">Username: <%= title %> </li>
+<% if( owner === true) { %>
+    <li id="prof-email">Email: <%= email %></li>
+<% } %>
+<li id="prof-date">User Since: <%= date %></li>
+</ul>
+</div>
+
+
+
+<div class="flex-container">
+    <% if ((owner === true) || (admin === 1)) { %>
+		<div  id="admin"></div>
+    <div class = "update-box">
+	<form class="row" method="patch" id="user-update">
+		<h3> Update User information:</h3>
+		<div class="inputField">
+			<label >Email:</label>
+			<input type="text" id="email">
+		</div>
+        <div class="inputField">
+			<button class = "submit" onclick="userBtn('email')">Update Email</button>
+		</div>
+		<div class="inputField">
+			<label>Password:</label>
+			<input type="password" id="pass">
+		</div>
+        <div class="inputField">
+			<button class = "submit" onclick="userBtn('pass')">Update Password</button>
+		</div>
+		<br><br><br>
+		<div class="inputField">
+			<button class="submit" id="delete-account" data-id="<%= title %>">Delete All My Songs</button>
+		</div>
+		<br><br><br>
+		<% if(admin === 1){ %>
+		<div class="inputField">
+			<button class="submit" id="make-admin" data-id="<%= title %>">Make this user an Admin</button>
+		</div>
+		<% } %>
+		</br>
+	</form>
+    </div>
+    <% } %>
+
+<!songlist is populated here>
+<div class="tablebox">
+<table class="songlist">
+	<tbody>
+
+	</tbody>
+</table>
+
+<% if (owner === true) {%>
+<div class="contents">
+<button class="submit" onclick="location.href='/create'">Make a New Beat!</button>
+</div>
+<% } %>
+
+</div>
+
+
+</div>
+</div>
+<!messages can be inserted into this container>
+<div class="container" id="messages">
+	
+</div>
+
+<%- include('./partials/footer.ejs') %>
+<script src = "/index.js"></script>
+</body>
+
+</HTML>
